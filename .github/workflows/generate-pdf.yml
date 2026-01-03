@@ -1,0 +1,88 @@
+name: Generate PDF
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'index.html'
+      - '1715654961528.jpeg'
+  workflow_dispatch:
+
+jobs:
+  generate-pdf:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: npm install puppeteer
+        
+      - name: Generate PDF
+        run: |
+          node -e "
+          const puppeteer = require('puppeteer');
+          const fs = require('fs');
+          
+          (async () => {
+            const browser = await puppeteer.launch({
+              headless: 'new',
+              args: ['--no-sandbox', '--disable-setuid-sandbox']
+            });
+            
+            const page = await browser.newPage();
+            
+            await page.setViewport({
+              width: 1200,
+              height: 1600,
+              deviceScaleFactor: 2
+            });
+            
+            const html = fs.readFileSync('index.html', 'utf-8');
+            await page.setContent(html, {
+              waitUntil: 'networkidle0'
+            });
+            
+            await page.waitForTimeout(2000);
+            
+            await page.pdf({
+              path: 'Muhammad-Tahir-Korejo-CV.pdf',
+              format: 'A4',
+              printBackground: true,
+              margin: {
+                top: '0.5cm',
+                right: '0.5cm',
+                bottom: '0.5cm',
+                left: '0.5cm'
+              }
+            });
+            
+            await browser.close();
+            console.log('PDF generated successfully!');
+          })();
+          "
+          
+      - name: Upload PDF as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv-pdf
+          path: Muhammad-Tahir-Korejo-CV.pdf
+          
+      - name: Commit PDF to repository
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add Muhammad-Tahir-Korejo-CV.pdf
+          git diff --staged --quiet || git commit -m "Auto-generate PDF from CV"
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
