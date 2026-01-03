@@ -49,7 +49,7 @@ jobs:
               waitUntil: 'networkidle0'
             });
             
-            await page.waitForTimeout(2000);
+            await new Promise(resolve => setTimeout(resolve, 2000));
             
             await page.pdf({
               path: 'Muhammad-Tahir-Korejo-CV.pdf',
