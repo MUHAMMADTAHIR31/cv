@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Tahir Korejo - CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header .title {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+            padding: 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .section:hover {
+            background-color: #fafbfc;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #764ba2;
+        }
+
+        .subsection {
+            margin-bottom: 25px;
+        }
+
+        .subsection-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .job-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .company {
+            font-size: 1.1em;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            color: #666;
+            font-style: italic;
+            white-space: nowrap;
+        }
+
+        .description {
+            margin-top: 10px;
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05em;
+            text-align: justify;
+        }
+
+        .summary-text {
+            line-height: 2;
+            font-size: 1.1em;
+            color: #444;
+            text-align: justify;
+            letter-spacing: 0.3px;
+            font-weight: 400;
+        }
+
+        .description ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .description li {
+            margin-bottom: 12px;
+            line-height: 1.9;
+            font-size: 1.05em;
+            text-align: justify;
+            color: #444;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+            border-left-width: 6px;
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.15em;
+            font-weight: 600;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 6px 0;
+            color: #444;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+
+        .skill-category li:before {
+            content: "▹ ";
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+        }
+
+        .degree {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .university {
+            color: #667eea;
+            margin-top: 5px;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                box-shadow: none;
+                margin: 0;
+            }
+
+            .header {
+                background: #667eea;
+            }
+
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+                border-width: 3px;
+            }
+        }
+
+        /* Tablet and smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+                border-width: 4px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .header .title {
+                font-size: 1em;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+                font-size: 0.9em;
+            }
+
+            .contact-info span {
+                display: inline-block;
+            }
+
+            .section-title {
+                font-size: 1.5em;
+            }
+
+            .subsection-header {
+                flex-direction: column;
+            }
+
+            .date {
+                margin-top: 5px;
+                font-size: 0.95em;
+            }
+
+            .job-title {
+                font-size: 1.1em;
+            }
+
+            .company {
+                font-size: 1em;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .description {
+                font-size: 0.95em;
+            }
+        }
+
+        /* Mobile phones */
+        @media (max-width: 480px) {
+            .container {
+                margin: 0;
+                box-shadow: none;
+            }
+
+            .header {
+                padding: 20px 15px;
+            }
+
+            .profile-photo {
+                width: 100px;
+                height: 100px;
+                border-width: 3px;
+                margin-bottom: 15px;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+                margin-bottom: 8px;
+            }
+
+            .header .title {
+                font-size: 0.9em;
+                margin-bottom: 15px;
+            }
+
+            .contact-info {
+                gap: 8px;
+                font-size: 0.85em;
+            }
+
+            .contact-info a,
+            .contact-info span {
+                word-break: break-word;
+            }
+
+            .content {
+                padding: 15px;
+            }
+
+            .section {
+                margin-bottom: 25px;
+            }
+
+            .section-title {
+                font-size: 1.3em;
+                margin-bottom: 15px;
+            }
+
+            .subsection {
+                margin-bottom: 20px;
+            }
+
+            .job-title {
+                font-size: 1em;
+            }
+
+            .company {
+                font-size: 0.9em;
+            }
+
+            .date {
+                font-size: 0.85em;
+            }
+
+            .description {
+                font-size: 0.9em;
+                margin-top: 8px;
+            }
+
+            .description ul {
+                margin-left: 15px;
+            }
+
+            .description li {
+                margin-bottom: 6px;
+            }
+
+            .skill-category {
+                padding: 12px;
+            }
+
+            .skill-category h3 {
+                font-size: 1em;
+            }
+
+            .skill-category li {
+                font-size: 0.9em;
+            }
+
+            .degree {
+                font-size: 1em;
+            }
+
+            .university {
+                font-size: 0.95em;
+            }
+        }
+
+        /* Very small screens */
+        @media (max-width: 360px) {
+            .header h1 {
+                font-size: 1.3em;
+            }
+
+            .profile-photo {
+                width: 80px;
+                height: 80px;
+            }
+
+            .contact-info {
+                font-size: 0.8em;
+            }
+
+            .section-title {
+                font-size: 1.2em;
+            }
+        }
+
+        /* Language Toggle Button */
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+        }
+
+        .language-toggle button {
+            padding: 10px 20px;
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .language-toggle button:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="language-toggle">
+        <button onclick="toggleLanguage()" id="langBtn">🇮🇹 Italiano</button>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <img src="1715654961528.jpeg" alt="Muhammad Tahir Korejo" class="profile-photo">
+            <h1>Muhammad Tahir Korejo</h1>
+            <div class="title" data-lang-key="title">Software Engineer | Java Backend Developer | Master's Student at
+                UNIGE</div>
+            <div class="contact-info">
+                <a href="mailto:tahirkorejo872@gmail.com">📧 tahirkorejo872@gmail.com</a>
+                <a href="tel:+393317606955">📱 +39-3317606955</a>
+                <a href="https://www.linkedin.com/in/muhammad-tahir-83a431204/" target="_blank">🔗 LinkedIn</a>
+                <a href="https://github.com/MUHAMMADTAHIR31" target="_blank">💻 GitHub</a>
+                <span style="color: white;">📍 Vico di Santa Fede 6/2, 16126 Genoa, Italy</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Personal Information -->
+            <div class="section" style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div data-lang-key="nationality"><strong>Nationality:</strong> <span
+                            data-lang-key="pakistani">Pakistani</span></div>
+                    <div data-lang-key="workPermit"><strong>Work Permit:</strong> <span
+                            data-lang-key="studentVisa">Student Visa (Italy)</span></div>
+                    <div data-lang-key="availability"><strong>Availability:</strong> <span
+                            data-lang-key="immediately">Immediately</span></div>
+                </div>
+            </div>
+
+            <!-- Professional Summary -->
+            <div class="section">
+                <h2 class="section-title" data-lang-key="summary">Professional Summary</h2>
+                <p class="summary-text" data-lang-key="summaryText">
+                    I'm a software developer with 2+ years of experience building healthcare applications using Java and
+                    Angular.
+                    Most of my work involves Spring Boot microservices, REST APIs, Angular frontends, and handling AWS
+                    deployments. I also work with Apache Kafka for event-driven messaging and Keycloak for
+                    authentication. I've spent a lot of time
+                    working on certificate management and secure communication between services—things like mTLS
+                    configuration and
+                    SSL troubleshooting. During my internship at Ericsson, I focused on testing microservice security
+                    patterns.
+                    Now I'm finishing my Master's in Computer Engineering at University of Genoa, where I'm diving
+                    deeper into
+                    distributed systems and cloud architectures.
+                </p>
+            </div>
+
+            <!-- Work Experience -->
+            <div class="section">
+                <h2 class="section-title" data-lang-key="workExp">Work Experience</h2>
+
+                <div class="subsection">
+                    <div class="subsection-header">
+                        <div>
+                            <div class="job-title" data-lang-key="job1Title">Research Intern (Master's Student)</div>
+                            <div class="company">Ericsson, Genoa, Italy</div>
+                        </div>
+                        <div class="date">Apr 2024 – Dec 2024</div>
+                    </div>
+                    <div class="description">
+                        <ul>
+                            <li data-lang-key="job1Point1">Worked on implementing mTLS for secure communication between
+                                Spring Boot microservices
+                                as part of a research project on service security</li>
+                            <li data-lang-key="job1Point2">Built a Certificate Authority Manager tool to handle SSL/TLS
+                                certificate
+                                lifecycle—generation, renewal, and revocation for test environments</li>
+                            <li data-lang-key="job1Point3">Automated certificate management workflows to reduce manual
+                                configuration tasks and
+                                streamline the testing process</li>
+                            <li data-lang-key="job1Point4">Applied Spring Security configurations and researched best
+                                practices for microservice
+                                authentication and authorization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-header">
+                        <div>
+                            <div class="job-title" data-lang-key="job2Title">Software Engineer</div>
+                            <div class="company">IntraCare, Texas, USA</div>
+                        </div>
+                        <div class="date">Nov 2022 – Sept 2025</div>
+                    </div>
+                    <div class="description">
+                        <p style="font-style: italic; margin-bottom: 8px; color: #666;" data-lang-key="job2Note">
+                            Full-time at MAC Care subsidiary in Karachi (Nov 2022 – Oct 2023), then Remote Part-time
+                            (Feb 2024 – Sept 2025) while pursuing Master's degree
+                        </p>
+                        <ul>
+                            <li data-lang-key="job2Point1">Developed Spring Boot microservices and Angular web
+                                applications for a healthcare
+                                management platform handling
+                                patient records, appointments, and facility operations across multiple clinics</li>
+                            <li data-lang-key="job2Point2">Built RESTful APIs to serve patient data to Angular frontend
+                                and mobile applications,
+                                integrating
+                                with external healthcare systems</li>
+                            <li data-lang-key="job2Point3">Handled AWS deployments of Java and Angular applications
+                                (EC2, S3, RDS) and managed
+                                infrastructure tasks including monitoring, backups, and resource scaling</li>
+                            <li data-lang-key="job2Point4">Configured and maintained Apache Kafka for event-driven
+                                messaging and Keycloak for
+                                authentication and authorization across services</li>
+                            <li data-lang-key="job2Point5">Maintained code quality through JUnit testing and
+                                participated in code reviews with the
+                                team</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="section">
+                <h2 class="section-title" data-lang-key="education">Education</h2>
+
+                <div class="education-item">
+                    <div class="degree" data-lang-key="masterDegree">Master of Engineering in Computer Engineering</div>
+                    <div class="university">University of Genoa (UNIGE), Genoa, Italy</div>
+                    <div class="date" data-lang-key="masterDate">Sep 2023 – Mar 2026 (expected)</div>
+                    <div class="description" style="margin-top: 10px;">
+                        <strong data-lang-key="focusAreasLabel">Focus Areas:</strong> <span
+                            data-lang-key="masterFocusAreas">Software security, distributed systems, and cloud
+                            computing</span>
+                        <br><strong data-lang-key="keyCoursesLabel">Key Courses:</strong> <span
+                            data-lang-key="masterCourses">Computer Security, Secure Coding, Binary Analysis,
+                            Virtualization and Cloud Computing, Software Platforms, Machine Learning</span>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="degree" data-lang-key="bachelorDegree">Bachelor of Engineering in Computer Systems |
+                        CGPA: 3.56</div>
+                    <div class="university">Mehran University of Engineering and Technology (MUET), Jamshoro</div>
+                    <div class="date" data-lang-key="bachelorDate">Oct 2018 – Sep 2022</div>
+                    <div class="description" style="margin-top: 10px;">
+                        <strong data-lang-key="keyCoursesLabel">Key Courses:</strong> <span
+                            data-lang-key="bachelorCourses">Web Engineering, Mobile Application Development, Database
+                            Management Systems, Data Science, Compiler Design</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="section">
+                <h2 class="section-title" data-lang-key="skills">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3 data-lang-key="skillCat1">Programming Languages</h3>
+                        <ul>
+                            <li>Java</li>
+                            <li>Python</li>
+                            <li>TypeScript</li>
+                            <li>JavaScript</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 data-lang-key="skillCat2">Web Technologies & Frameworks</h3>
+                        <ul>
+                            <li>Spring Boot</li>
+                            <li>Angular</li>
+                            <li>HTML / Bootstrap</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 data-lang-key="skillCat3">Databases</h3>
+                        <ul>
+                            <li>MySQL</li>
+                            <li>Oracle</li>
+                            <li>PostgreSQL</li>
+                            <li>MongoDB</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 data-lang-key="skillCat4">Cloud & DevOps</h3>
+                        <ul>
+                            <li>AWS (EC2, S3, RDS, ECS)</li>
+                            <li>Docker</li>
+                            <li>Azure</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 data-lang-key="skillCat5">Tools & Platforms</h3>
+                        <ul>
+                            <li>Apache Kafka</li>
+                            <li>Maven</li>
+                            <li>Git</li>
+                            <li>Keycloak</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 data-lang-key="skillCat6">Testing & OS</h3>
+                        <ul>
+                            <li>JUnit</li>
+                            <li>Postman</li>
+                            <li>Windows / Linux / macOS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Languages -->
+            <div class="section">
+                <h2 class="section-title" data-lang-key="languages">Languages</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3 data-lang-key="langEnglish">English</h3>
+                        <ul>
+                            <li data-lang-key="englishProf">Proficiency: B1-B2 (Intermediate)</li>
+                            <li data-lang-key="englishDesc">Professional working proficiency</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 data-lang-key="langItalian">Italian</h3>
+                        <ul>
+                            <li data-lang-key="italianProf">Proficiency: A1-A2 (Elementary)</li>
+                            <li data-lang-key="italianDesc">Basic conversational use</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3 data-lang-key="langUrdu">Urdu</h3>
+                        <ul>
+                            <li data-lang-key="urduProf">Proficiency: C2 (Native)</li>
+                            <li data-lang-key="urduDesc">Mother tongue</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="margin-top: 15px; font-size: 0.9em; color: #666;">
+                    <em data-lang-key="cefrNote">Language proficiency levels based on Common European Framework of
+                        Reference (CEFR)</em>
+                </div>
+            </div>
+
+            <!-- Projects -->
+            <div class="section">
+                <h2 class="section-title" data-lang-key="projects">Key Projects</h2>
+
+                <div class="subsection">
+                    <div class="subsection-header">
+                        <div>
+                            <div class="job-title" data-lang-key="project1Title">Healthcare Management Platform</div>
+                            <div class="company">IntraCare, Texas, USA</div>
+                        </div>
+                        <div class="date">Nov 2022 – Sept 2025</div>
+                    </div>
+                    <div class="description">
+                        <ul>
+                            <li data-lang-key="project1Point1">Developed Spring Boot microservices and Angular web
+                                applications for patient records,
+                                appointments, and facility
+                                operations across multiple clinics</li>
+                            <li data-lang-key="project1Point2">Built RESTful APIs to serve patient data to Angular
+                                frontend and mobile applications,
+                                integrating
+                                with external healthcare systems</li>
+                            <li data-lang-key="project1Point3">Managed AWS infrastructure (EC2, S3, RDS) and worked on
+                                performance optimization for
+                                frequently-used endpoints</li>
+                            <li data-lang-key="project1Point4">Maintained code quality through JUnit testing and
+                                participated in code reviews</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <div class="subsection-header">
+                        <div>
+                            <div class="job-title" data-lang-key="project2Title">Fleet Tracking and Management System
+                                (Final Year Project)</div>
+                        </div>
+                        <div class="date">Jan 2022 – Sep 2022</div>
+                    </div>
+                    <div class="description">
+                        <ul>
+                            <li data-lang-key="project2Point1">Built a fleet management system with a web admin portal
+                                (Java, HTML, CSS, JavaScript)
+                                and Android mobile app</li>
+                            <li data-lang-key="project2Point2">Integrated real-time GPS tracking using Google Maps API
+                                for route planning and vehicle
+                                monitoring</li>
+                            <li data-lang-key="project2Point3">Added messaging features for communication between
+                                admins, drivers, and customers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Publication -->
+            <div class="section">
+                <h2 class="section-title" data-lang-key="publication">Publication</h2>
+                <div class="subsection">
+                    <div class="description">
+                        <p style="margin-bottom: 8px;">
+                            <strong><a href="https://publications.muet.edu.pk/index.php/muetrj/article/view/2767"
+                                    target="_blank" style="color: #667eea; text-decoration: none;"
+                                    data-lang-key="pubTitle">"An Ensemble of CNN
+                                    Architectures for Early Detection of Alzheimer's Disease Using
+                                    Brain MRI"</a></strong>
+                        </p>
+                        <p style="color: #666; font-style: italic; margin-bottom: 5px;">
+                            Mehran University Engineering & Technology Research Journal (MUETRJ)
+                        </p>
+                        <p style="color: #666;">
+                            <span data-lang-key="pubDate">Published: October 2023</span> | <a
+                                href="https://publications.muet.edu.pk/index.php/muetrj/article/view/2767"
+                                target="_blank" style="color: #667eea; text-decoration: none;"
+                                data-lang-key="pubLink">View Publication →</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="section">
+                <h2 class="section-title" data-lang-key="certifications">Certifications</h2>
+                <div class="subsection">
+                    <div class="description">
+                        <p style="margin-bottom: 5px;">
+                            <strong data-lang-key="certTitle">Java Development and Web Development
+                                Certification</strong>
+                        </p>
+                        <p style="color: #666; font-style: italic; margin-bottom: 3px;">
+                            Bell Labs, Hyderabad
+                        </p>
+                        <p style="color: #666;">
+                            September 2019 – August 2021
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Privacy Statement -->
+            <div class="section" style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 30px;">
+                <h2 class="section-title" data-lang-key="privacy" style="font-size: 1.2em; margin-bottom: 15px;">Privacy
+                    & Data Protection</h2>
+                <p style="font-size: 0.9em; color: #555; line-height: 1.6;" data-lang-key="privacyText">
+                    I hereby authorize the processing of my personal data in accordance with Legislative Decree 196/2003
+                    (Italian Privacy Code) and the EU General Data Protection Regulation (GDPR 2016/679) for recruitment
+                    purposes.
+                </p>
+                <p style="font-size: 0.85em; color: #666; margin-top: 10px; font-style: italic;"
+                    data-lang-key="referencesSection">
+                    <strong>References:</strong> Available upon request
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Language toggle functionality
+        let currentLang = 'en';
+
+        const translations = {
+            en: {
+                title: "Software Engineer | Java Backend Developer | Master's Student at UNIGE",
+                nationality: "Nationality:",
+                workPermit: "Work Permit:",
+                availability: "Availability:",
+                pakistani: "Pakistani",
+                studentVisa: "Student Visa (Italy)",
+                immediately: "Immediately",
+                summary: "Professional Summary",
+                summaryText: "I'm a software developer with 2+ years of experience building healthcare applications using Java and Angular. Most of my work involves Spring Boot microservices, REST APIs, Angular frontends, and handling AWS deployments. I also work with Apache Kafka for event-driven messaging and Keycloak for authentication. I've spent a lot of time working on certificate management and secure communication between services—things like mTLS configuration and SSL troubleshooting. During my internship at Ericsson, I focused on testing microservice security patterns. Now I'm finishing my Master's in Computer Engineering at University of Genoa, where I'm diving deeper into distributed systems and cloud architectures.",
+                workExp: "Work Experience",
+                job1Title: "Research Intern (Master's Student)",
+                job1Point1: "Worked on implementing mTLS for secure communication between Spring Boot microservices as part of a research project on service security",
+                job1Point2: "Built a Certificate Authority Manager tool to handle SSL/TLS certificate lifecycle—generation, renewal, and revocation for test environments",
+                job1Point3: "Automated certificate management workflows to reduce manual configuration tasks and streamline the testing process",
+                job1Point4: "Applied Spring Security configurations and researched best practices for microservice authentication and authorization",
+                job2Title: "Software Engineer",
+                job2Note: "Full-time at MAC Care subsidiary in Karachi (Nov 2022 – Oct 2023), then Remote Part-time (Feb 2024 – Sept 2025) while pursuing Master's degree",
+                job2Point1: "Developed Spring Boot microservices and Angular web applications for a healthcare management platform handling patient records, appointments, and facility operations across multiple clinics",
+                job2Point2: "Built RESTful APIs to serve patient data to Angular frontend and mobile applications, integrating with external healthcare systems",
+                job2Point3: "Handled AWS deployments of Java and Angular applications (EC2, S3, RDS) and managed infrastructure tasks including monitoring, backups, and resource scaling",
+                job2Point4: "Configured and maintained Apache Kafka for event-driven messaging and Keycloak for authentication and authorization across services",
+                job2Point5: "Maintained code quality through JUnit testing and participated in code reviews with the team",
+                education: "Education",
+                masterDegree: "Master of Engineering in Computer Engineering",
+                masterDate: "Sep 2023 – Mar 2026 (expected)",
+                focusAreasLabel: "Focus Areas:",
+                masterFocusAreas: "Software security, distributed systems, and cloud computing",
+                keyCoursesLabel: "Key Courses:",
+                masterCourses: "Computer Security, Secure Coding, Binary Analysis, Virtualization and Cloud Computing, Software Platforms, Machine Learning",
+                bachelorDegree: "Bachelor of Engineering in Computer Systems | CGPA: 3.56",
+                bachelorDate: "Oct 2018 – Sep 2022",
+                bachelorCourses: "Web Engineering, Mobile Application Development, Database Management Systems, Data Science, Compiler Design",
+                skills: "Technical Skills",
+                skillCat1: "Programming Languages",
+                skillCat2: "Web Technologies & Frameworks",
+                skillCat3: "Databases",
+                skillCat4: "Cloud & DevOps",
+                skillCat5: "Tools & Platforms",
+                skillCat6: "Testing & OS",
+                languages: "Languages",
+                langEnglish: "English",
+                englishProf: "Proficiency: B1-B2 (Intermediate)",
+                englishDesc: "Professional working proficiency",
+                langItalian: "Italian",
+                italianProf: "Proficiency: A1-A2 (Elementary)",
+                italianDesc: "Basic conversational use",
+                langUrdu: "Urdu",
+                urduProf: "Proficiency: C2 (Native)",
+                urduDesc: "Mother tongue",
+                cefrNote: "Language proficiency levels based on Common European Framework of Reference (CEFR)",
+                projects: "Key Projects",
+                project1Title: "Healthcare Management Platform",
+                project1Point1: "Developed Spring Boot microservices and Angular web applications for patient records, appointments, and facility operations across multiple clinics",
+                project1Point2: "Built RESTful APIs to serve patient data to Angular frontend and mobile applications, integrating with external healthcare systems",
+                project1Point3: "Managed AWS infrastructure (EC2, S3, RDS) and worked on performance optimization for frequently-used endpoints",
+                project1Point4: "Maintained code quality through JUnit testing and participated in code reviews",
+                project2Title: "Fleet Tracking and Management System (Final Year Project)",
+                project2Point1: "Built a fleet management system with a web admin portal (Java, HTML, CSS, JavaScript) and Android mobile app",
+                project2Point2: "Integrated real-time GPS tracking using Google Maps API for route planning and vehicle monitoring",
+                project2Point3: "Added messaging features for communication between admins, drivers, and customers",
+                publication: "Publication",
+                pubTitle: '"An Ensemble of CNN Architectures for Early Detection of Alzheimer\'s Disease Using Brain MRI"',
+                pubDate: "Published: October 2023",
+                pubLink: "View Publication →",
+                certifications: "Certifications",
+                certTitle: "Java Development and Web Development Certification",
+                privacy: "Privacy & Data Protection",
+                privacyText: "I hereby authorize the processing of my personal data in accordance with Legislative Decree 196/2003 (Italian Privacy Code) and the EU General Data Protection Regulation (GDPR 2016/679) for recruitment purposes.",
+                referencesSection: "<strong>References:</strong> Available upon request",
+                printBtn: "🖨️ Print / Save as PDF",
+                langBtn: "🇮🇹 Italiano"
+            },
+            it: {
+                title: "Ingegnere Software | Sviluppatore Backend Java | Studente Magistrale presso UNIGE",
+                nationality: "Nazionalità:",
+                workPermit: "Permesso di Lavoro:",
+                availability: "Disponibilità:",
+                pakistani: "Pakistano",
+                studentVisa: "Visto Studente (Italia)",
+                immediately: "Immediata",
+                summary: "Profilo Professionale",
+                summaryText: "Sono uno sviluppatore software con oltre 2 anni di esperienza nella realizzazione di applicazioni sanitarie utilizzando Java e Angular. La maggior parte del mio lavoro riguarda microservizi Spring Boot, API REST, frontend Angular e gestione di deployment su AWS. Lavoro anche con Apache Kafka per messaggistica event-driven e Keycloak per l'autenticazione. Ho dedicato molto tempo alla gestione dei certificati e alla comunicazione sicura tra servizi—come la configurazione mTLS e il troubleshooting SSL. Durante il mio tirocinio presso Ericsson, mi sono concentrato sul testing dei pattern di sicurezza dei microservizi. Attualmente sto completando il mio Master in Ingegneria Informatica presso l'Università di Genova, approfondendo sistemi distribuiti e architetture cloud.",
+                workExp: "Esperienza Lavorativa",
+                job1Title: "Stagista di Ricerca (Studente Magistrale)",
+                job1Point1: "Implementazione di mTLS per la comunicazione sicura tra microservizi Spring Boot come parte di un progetto di ricerca sulla sicurezza dei servizi",
+                job1Point2: "Sviluppo di uno strumento Certificate Authority Manager per gestire il ciclo di vita dei certificati SSL/TLS—generazione, rinnovo e revoca per ambienti di test",
+                job1Point3: "Automazione dei flussi di lavoro di gestione dei certificati per ridurre le attività di configurazione manuale e ottimizzare il processo di testing",
+                job1Point4: "Applicazione di configurazioni Spring Security e ricerca delle best practice per l'autenticazione e l'autorizzazione dei microservizi",
+                job2Title: "Ingegnere Software",
+                job2Note: "Full-time presso la filiale MAC Care a Karachi (Nov 2022 – Ott 2023), poi Part-time Remoto (Feb 2024 – Sett 2025) durante il Master",
+                job2Point1: "Sviluppo di microservizi Spring Boot e applicazioni web Angular per una piattaforma di gestione sanitaria che gestisce cartelle cliniche, appuntamenti e operazioni di strutture in più cliniche",
+                job2Point2: "Creazione di API RESTful per fornire dati dei pazienti al frontend Angular e alle applicazioni mobili, integrandosi con sistemi sanitari esterni",
+                job2Point3: "Gestione dei deployment AWS di applicazioni Java e Angular (EC2, S3, RDS) e delle attività infrastrutturali inclusi monitoraggio, backup e scaling delle risorse",
+                job2Point4: "Configurazione e manutenzione di Apache Kafka per la messaggistica event-driven e Keycloak per l'autenticazione e l'autorizzazione tra i servizi",
+                job2Point5: "Mantenimento della qualità del codice attraverso testing JUnit e partecipazione alle code review con il team",
+                education: "Istruzione",
+                masterDegree: "Laurea Magistrale in Ingegneria Informatica",
+                masterDate: "Set 2023 – Mar 2026 (previsto)",
+                focusAreasLabel: "Aree di Specializzazione:",
+                masterFocusAreas: "Sicurezza del software, sistemi distribuiti e cloud computing",
+                keyCoursesLabel: "Corsi Principali:",
+                masterCourses: "Computer Security, Secure Coding, Binary Analysis, Virtualizzazione e Cloud Computing, Piattaforme Software, Machine Learning",
+                bachelorDegree: "Laurea in Ingegneria dei Sistemi Informatici | Media: 3.56",
+                bachelorDate: "Ott 2018 – Set 2022",
+                bachelorCourses: "Web Engineering, Sviluppo di Applicazioni Mobili, Sistemi di Gestione Database, Data Science, Progettazione di Compilatori",
+                skills: "Competenze Tecniche",
+                skillCat1: "Linguaggi di Programmazione",
+                skillCat2: "Tecnologie Web e Framework",
+                skillCat3: "Database",
+                skillCat4: "Cloud e DevOps",
+                skillCat5: "Strumenti e Piattaforme",
+                skillCat6: "Testing e Sistemi Operativi",
+                languages: "Lingue",
+                langEnglish: "Inglese",
+                englishProf: "Livello: B1-B2 (Intermedio)",
+                englishDesc: "Competenza professionale",
+                langItalian: "Italiano",
+                italianProf: "Livello: A1-A2 (Elementare)",
+                italianDesc: "Uso conversazionale di base",
+                langUrdu: "Urdu",
+                urduProf: "Livello: C2 (Madrelingua)",
+                urduDesc: "Lingua madre",
+                cefrNote: "Livelli di competenza linguistica basati sul Quadro Comune Europeo di Riferimento (QCER)",
+                projects: "Progetti Principali",
+                project1Title: "Piattaforma di Gestione Sanitaria",
+                project1Point1: "Sviluppo di microservizi Spring Boot e applicazioni web Angular per cartelle cliniche, appuntamenti e operazioni di strutture in più cliniche",
+                project1Point2: "Creazione di API RESTful per fornire dati dei pazienti al frontend Angular e alle applicazioni mobili, integrandosi con sistemi sanitari esterni",
+                project1Point3: "Gestione dell'infrastruttura AWS (EC2, S3, RDS) e ottimizzazione delle prestazioni per gli endpoint più utilizzati",
+                project1Point4: "Mantenimento della qualità del codice attraverso testing JUnit e partecipazione alle code review",
+                project2Title: "Sistema di Tracciamento e Gestione Flotte (Progetto di Laurea)",
+                project2Point1: "Realizzazione di un sistema di gestione flotte con portale web di amministrazione (Java, HTML, CSS, JavaScript) e app mobile Android",
+                project2Point2: "Integrazione di tracciamento GPS in tempo reale utilizzando Google Maps API per pianificazione percorsi e monitoraggio veicoli",
+                project2Point3: "Aggiunta di funzionalità di messaggistica per la comunicazione tra amministratori, autisti e clienti",
+                publication: "Pubblicazione",
+                pubTitle: '"Un Ensemble di Architetture CNN per il Rilevamento Precoce della Malattia di Alzheimer Utilizzando Risonanza Magnetica Cerebrale"',
+                pubDate: "Pubblicato: Ottobre 2023",
+                pubLink: "Visualizza Pubblicazione →",
+                certifications: "Certificazioni",
+                certTitle: "Certificazione Sviluppo Java e Sviluppo Web",
+                privacy: "Privacy e Protezione dei Dati",
+                privacyText: "Autorizzo il trattamento dei miei dati personali ai sensi del Decreto Legislativo 196/2003 (Codice Privacy Italiano) e del Regolamento Generale sulla Protezione dei Dati dell'UE (GDPR 2016/679) per scopi di reclutamento.",
+                referencesSection: "<strong>Referenze:</strong> Disponibili su richiesta",
+                printBtn: "🖨️ Stampa / Salva come PDF",
+                langBtn: "🇬🇧 English"
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'it' : 'en';
+            const t = translations[currentLang];
+
+            // Update button
+            document.getElementById('langBtn').textContent = t.langBtn;
+
+            // Update print button if it exists
+            const printBtn = document.getElementById('printBtn');
+            if (printBtn) {
+                printBtn.textContent = t.printBtn;
+            }
+
+            // Update all elements with data-lang-key attribute
+            document.querySelectorAll('[data-lang-key]').forEach(elem => {
+                const key = elem.getAttribute('data-lang-key');
+                if (t[key]) {
+                    // Handle different element types
+                    if (elem.tagName === 'SPAN') {
+                        elem.textContent = t[key];
+                    } else if (elem.tagName === 'H2') {
+                        elem.textContent = t[key];
+                    } else if (elem.tagName === 'H3') {
+                        elem.textContent = t[key];
+                    } else if (elem.tagName === 'LI') {
+                        elem.textContent = t[key];
+                    } else if (elem.tagName === 'EM') {
+                        elem.textContent = t[key];
+                    } else if (elem.tagName === 'STRONG') {
+                        elem.textContent = t[key];
+                    } else if (elem.tagName === 'A') {
+                        elem.textContent = t[key];
+                    } else if (elem.className === 'title') {
+                        elem.textContent = t[key];
+                    } else if (elem.className === 'summary-text') {
+                        elem.textContent = t[key];
+                    } else if (elem.className === 'job-title') {
+                        elem.textContent = t[key];
+                    } else if (elem.className === 'degree') {
+                        elem.textContent = t[key];
+                    } else if (elem.className === 'date') {
+                        elem.textContent = t[key];
+                    } else if (elem.tagName === 'DIV') {
+                        // For personal info divs - update the strong tag
+                        const strong = elem.querySelector('strong');
+                        if (strong) {
+                            strong.textContent = t[key];
+                        }
+                    } else if (elem.tagName === 'P') {
+                        // For references section and other paragraphs
+                        elem.innerHTML = t[key];
+                    }
+                }
+            });
+        }
+
+        // Add print button dynamically
+        document.addEventListener('DOMContentLoaded', function () {
+            const printBtn = document.createElement('button');
+            printBtn.id = 'printBtn';
+            printBtn.textContent = translations[currentLang].printBtn;
+            printBtn.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                padding: 15px 25px;
+                background: #667eea;
+                color: white;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                font-size: 16px;
+                box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+                transition: all 0.3s ease;
+                z-index: 1000;
+            `;
+            printBtn.onmouseover = function () {
+                this.style.transform = 'scale(1.05)';
+                this.style.boxShadow = '0 6px 20px rgba(102, 126, 234, 0.6)';
+            };
+            printBtn.onmouseout = function () {
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = '0 4px 15px rgba(102, 126, 234, 0.4)';
+            };
+            printBtn.onclick = printCV;
+            document.body.appendChild(printBtn);
+        });
+    </script>
+</body>
+
+</html>
