@@ -1,88 +1,39 @@
-name: Generate PDF
+name: Generate portfolio PDF
 
 on:
   push:
     branches: [ main ]
     paths:
       - 'index.html'
+      - 'styles.css'
+      - 'portfolio.js'
+      - 'generate-pdf.js'
       - '1715654961528.jpeg'
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   generate-pdf:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: '20'
-          
-      - name: Install dependencies
-        run: npm install puppeteer
-        
-      - name: Generate PDF
-        run: |
-          node -e "
-          const puppeteer = require('puppeteer');
-          const fs = require('fs');
-          
-          (async () => {
-            const browser = await puppeteer.launch({
-              headless: 'new',
-              args: ['--no-sandbox', '--disable-setuid-sandbox']
-            });
-            
-            const page = await browser.newPage();
-            
-            await page.setViewport({
-              width: 1200,
-              height: 1600,
-              deviceScaleFactor: 2
-            });
-            
-            const html = fs.readFileSync('index.html', 'utf-8');
-            await page.setContent(html, {
-              waitUntil: 'networkidle0'
-            });
-            
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            
-            await page.pdf({
-              path: 'Muhammad-Tahir-Korejo-CV.pdf',
-              format: 'A4',
-              printBackground: true,
-              margin: {
-                top: '0.5cm',
-                right: '0.5cm',
-                bottom: '0.5cm',
-                left: '0.5cm'
-              }
-            });
-            
-            await browser.close();
-            console.log('PDF generated successfully!');
-          })();
-          "
-          
-      - name: Upload PDF as artifact
-        uses: actions/upload-artifact@v5
+      - name: Install PDF export dependency
+        run: npm install --no-save puppeteer
+      - name: Generate portfolio PDF
+        run: node generate-pdf.js
+      - uses: actions/upload-artifact@v5
         with:
-          name: cv-pdf
+          name: portfolio-pdf
           path: Muhammad-Tahir-Korejo-CV.pdf
-          
-      - name: Commit PDF to repository
+      - name: Commit PDF
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add Muhammad-Tahir-Korejo-CV.pdf
-          git diff --staged --quiet || git commit -m "Auto-generate PDF from CV"
-          
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+          git diff --staged --quiet || git commit -m "Update printable portfolio PDF"
+          git push

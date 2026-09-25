@@ -1,4 +1,6 @@
 node_modules/
+dist/
+.site-staging/
 package-lock.json
 .DS_Store
 # Keep the auto-generated PDF
