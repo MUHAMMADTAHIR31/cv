@@ -8,7 +8,7 @@ on:
       - 'styles.css'
       - 'portfolio.js'
       - 'generate-pdf.js'
-      - '1715654961528.jpeg'
+      - 'assets/**'
   workflow_dispatch:
 
 permissions:

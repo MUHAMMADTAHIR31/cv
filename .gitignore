@@ -1,6 +1,22 @@
 node_modules/
 dist/
 .site-staging/
+archive/
+variants/
+tmp/
+output/
+.openai/
+*.doc
+*.docx
+*.docm
+/README.md
+/CV-FILES.md
+/*.jfif
+__pycache__/
+*.aux
+*.log
+*.out
+*.synctex.gz
 package-lock.json
 .DS_Store
 # Keep the auto-generated PDF
